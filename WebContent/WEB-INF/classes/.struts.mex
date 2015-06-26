@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts2" location="0,0" size="0,0">
+    <action name="indexAction" location="0,0" size="0,0">
+      <result name="result">
+        <resourceEdge source="result" routing="0" target="indexSuccessResult.jsp" />
+      </result>
+    </action>
+    <action name="addBookAction" location="0,0" size="0,0">
+      <result name="addSuccess">
+        <resourceEdge source="addSuccess" routing="0" target="addSuccess.jsp" />
+      </result>
+      <result name="addFailed">
+        <resourceEdge source="addFailed" routing="0" target="addFailed.jsp" />
+      </result>
+    </action>
+    <action name="studentLoginAction" location="0,0" size="0,0">
+      <result name="loginFailed">
+        <resourceEdge source="loginFailed" routing="0" target="studentLogin.jsp" />
+      </result>
+      <result name="loginSuccess">
+        <resourceEdge source="loginSuccess" routing="0" target="welcome.jsp" />
+      </result>
+    </action>
+    <action name="student_infoAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="student_basic_info.jsp" />
+      </result>
+    </action>
+    <action name="borrowed_infoAction" location="0,0" size="0,0">
+      <result name="borrowedInfo">
+        <resourceEdge source="borrowedInfo" routing="0" target="borrowedInfo.jsp" />
+      </result>
+      <result name="noBooksBorrowed">
+        <resourceEdge source="noBooksBorrowed" routing="0" target="noBooksBorrowed.jsp" />
+      </result>
+    </action>
+    <action name="logoutAction" location="0,0" size="0,0">
+      <result name="STUDENT_LOGOUT_SUCCESS">
+        <resourceEdge source="STUDENT_LOGOUT_SUCCESS" routing="0" target="studentLogin.jsp" />
+      </result>
+    </action>
+    <action name="bookDetailsAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bookDetails.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="borrowBookAction" location="0,0" size="0,0">
+      <result name="borrow_result" />
+    </action>
+    <action name="managerLoginAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="loginSuccess.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="managerLogin.jsp" />
+      </result>
+    </action>
+    <action name="managerLogoutAction" location="0,0" size="0,0">
+      <result name="logoutSuccess">
+        <resourceEdge source="logoutSuccess" routing="0" target="managerLogin.jsp" />
+      </result>
+      <result name="logoutFailed">
+        <resourceEdge source="logoutFailed" routing="0" target="businessProcess.jsp" />
+      </result>
+    </action>
+    <action name="deleteBookAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="deleteSuccess.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="deleteFailed.jsp" />
+      </result>
+    </action>
+    <action name="renewBookAction" location="0,0" size="0,0">
+      <result name="renew" />
+    </action>
+    <action name="renewBookAction2" location="0,0" size="0,0">
+      <result name="renew" />
+    </action>
+    <action name="returnBookAction" location="0,0" size="0,0">
+      <result name="returnResult">
+        <resourceEdge source="returnResult" routing="0" target="businessProcess.jsp" />
+      </result>
+    </action>
+    <action name="studentHandlerAction" location="0,0" size="0,0">
+      <result name="studentHandler">
+        <resourceEdge source="studentHandler" routing="0" target="studentHandler.jsp" />
+      </result>
+      <result name="noexist">
+        <resourceEdge source="noexist" routing="0" target="businessProcess.jsp" />
+      </result>
+    </action>
+    <action name="settleAccountsAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="studentHandler.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="studentHandler.jsp" />
+      </result>
+    </action>
+    <action name="studentRegisterAction" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="studentRegister.jsp" />
+      </result>
+    </action>
+    <action name="updatePasswordAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateResult.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="updatePassword.jsp" />
+      </result>
+    </action>
+    <action name="newBooksAction" location="0,0" size="0,0">
+      <result name="result">
+        <resourceEdge source="result" routing="0" target="newBooks.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="indexSuccessResult.jsp" path="/indexSuccessResult.jsp" location="0,0" size="0,0" />
+  <webResource name="nobooks.jsp" path="/nobooks.jsp" location="0,0" size="0,0" />
+  <webResource name="addSuccess.jsp" path="/manager/addSuccess.jsp" location="0,0" size="0,0" />
+  <webResource name="addFailed.jsp" path="/manager/addFailed.jsp" location="0,0" size="0,0" />
+  <webResource name="studentLogin.jsp" path="/student/studentLogin.jsp" location="0,0" size="0,0" />
+  <webResource name="welcome.jsp" path="/student/welcome.jsp" location="0,0" size="0,0" />
+  <webResource name="student_basic_info.jsp" path="/student/student_basic_info.jsp" location="0,0" size="0,0" />
+  <webResource name="borrowedInfo.jsp" path="/student/borrowedInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="noBooksBorrowed.jsp" path="/student/noBooksBorrowed.jsp" location="0,0" size="0,0" />
+  <webResource name="bookDetails.jsp" path="/bookDetails.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/error.jsp" location="0,0" size="0,0" />
+  <webResource name="loginSuccess.jsp" path="/manager/loginSuccess.jsp" location="0,0" size="0,0" />
+  <webResource name="managerLogin.jsp" path="/manager/managerLogin.jsp" location="0,0" size="0,0" />
+  <webResource name="businessProcess.jsp" path="/manager/businessProcess.jsp" location="0,0" size="0,0" />
+  <webResource name="deleteSuccess.jsp" path="/manager/deleteSuccess.jsp" location="0,0" size="0,0" />
+  <webResource name="deleteFailed.jsp" path="/manager/deleteFailed.jsp" location="0,0" size="0,0" />
+  <webResource name="studentHandler.jsp" path="/manager/studentHandler.jsp" location="0,0" size="0,0" />
+  <webResource name="studentRegister.jsp" path="/manager/studentRegister.jsp" location="0,0" size="0,0" />
+  <webResource name="updateResult.jsp" path="/student/updateResult.jsp" location="0,0" size="0,0" />
+  <webResource name="updatePassword.jsp" path="/student/updatePassword.jsp" location="0,0" size="0,0" />
+  <webResource name="newBooks.jsp" path="/newBooks.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

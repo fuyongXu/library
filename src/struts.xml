@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="struts2" extends="struts-default">
+		<interceptors>
+			<interceptor name="studentLoginInterceptor"
+				class="beyond.library.interceptor.StudentLoginInterceptor">
+			</interceptor>
+			<interceptor name="managerLoginInterceptor"
+				class="beyond.library.interceptor.ManagerLoginInterceptor">
+			</interceptor>
+
+		</interceptors>
+		<global-results>
+			<result name="STUDENT_LOGIN">/student/studentLogin.jsp</result>
+			<result name="MANAGER_LOGIN">/manager/managerLogin.jsp</result>
+		</global-results>
+		<action name="indexAction" class="beyond.library.action.IndexAction">
+			<result name="result">/indexSuccessResult.jsp</result>
+		</action>
+		<action name="addBookAction" class="beyond.library.action.AddBookAction">
+			<result name="addSuccess">/manager/addSuccess.jsp</result>
+			<result name="addFailed">/manager/addFailed.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="studentLoginAction" class="beyond.library.action.StudentLoginAction">
+			<result name="loginFailed">/student/studentLogin.jsp</result>
+			<result name="loginSuccess">/student/welcome.jsp</result>
+		</action>
+		<action name="studentInfoAction" class="beyond.library.action.Student_infoAction">
+			<result name="success">/student/student_basic_info.jsp</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="borrowedInfoAction" class="beyond.library.action.BorrowedInfoAction">
+			<result name="borrowedInfo">/student/borrowedInfo.jsp</result>
+			<result name="noBooksBorrowed">/student/noBooksBorrowed.jsp</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="logoutAction" class="beyond.library.action.StudentLogoutAction">
+			<result name="STUDENT_LOGOUT_SUCCESS">/student/studentLogin.jsp</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="bookDetailsAction" class="beyond.library.action.BookDetailsAction">
+			<result name="success">/bookDetails.jsp</result>
+			<result name="failed">/error.jsp</result>
+		</action>
+		<action name="borrowBookAction" class="beyond.library.action.BorrowBookAction">
+			<result name="borrow_result" type="chain">studentHandlerAction
+			</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="managerLoginAction" class="beyond.library.action.ManagerLoginAction">
+			<result name="success">/manager/loginSuccess.jsp</result>
+			<result name="failed">/manager/managerLogin.jsp</result>
+		</action>
+		<action name="managerLogoutAction" class="beyond.library.action.ManagerLogoutAction">
+			<result name="logoutSuccess">/manager/managerLogin.jsp</result>
+			<result name="logoutFailed">/manager/businessProcess.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="deleteBookAction" class="beyond.library.action.DeleteBookAction">
+			<result name="success">/manager/deleteSuccess.jsp</result>
+			<result name="failed">/manager/deleteFailed.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="renewBookAction" class="beyond.library.action.RenewBookAction">
+			<result name="renew" type="chain">borrowedInfoAction</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="renewBookAction2" class="beyond.library.action.RenewBookAction">
+			<result name="renew" type="chain">studentHandlerAction</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="returnBookAction" class="beyond.library.action.ReturnBookAction">
+			<result name="returnResult">/manager/businessProcess.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="studentHandlerAction" class="beyond.library.action.StudentHandlerAction">
+			<result name="studentHandler">/manager/studentHandler.jsp</result>
+			<result name="noexist">/manager/businessProcess.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="settleAccountsAction" class="beyond.library.action.SettleAccountsAction">
+			<result name="success">/manager/studentHandler.jsp</result>
+			<result name="failed">/manager/studentHandler.jsp</result>
+			<interceptor-ref name="managerLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="studentRegisterAction" class="beyond.library.action.StudentRegisterAction">
+			<result name="success" type="chain">studentHandlerAction</result>
+			<result name="failed">/manager/studentRegister.jsp</result>
+		</action>
+		<action name="updatePasswordAction" class="beyond.library.action.UpdatePasswordAction">
+			<result name="success">/student/updateResult.jsp</result>
+			<result name="failed">/student/updatePassword.jsp</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="newBooksAction" class="beyond.library.action.NewBooksAction">
+			<result name="result">/newBooks.jsp</result>
+		</action>
+		<action name="reservationBookAction" class="beyond.library.action.ReservationBookAction">
+			<result name="result" type="chain">bookDetailsAction</result>
+			<interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+</struts>
